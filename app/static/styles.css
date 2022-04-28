@@ -1,0 +1,33 @@
+body {
+background-color: #BBC9CC;
+}
+
+finePrint {
+	font-size: 0.5vw;
+}
+
+h1 {
+	font-size: 1vw;
+}
+
+h2 {
+	color: rgba(200, 100, 100);
+}
+
+h3 {
+	color: rgba(24, 81, 86);
+}
+
+td {
+	background-color: rgba(74, 211, 216, 0.582);
+}
+
+address{
+	font-style: normal;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+p{
+	padding-left: 1em;
+}
