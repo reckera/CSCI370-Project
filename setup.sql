@@ -11,12 +11,14 @@ CREATE TABLE shop
 	password char(8),
 	numMechanic int,
 	zipCode int,
+	phoneNum varchar(13),
 	PRIMARY KEY (shopNo)
 );
 
-INSERT INTO shop (shopName, password, numMechanic, zipCode) VALUES("Bob's Auto",'1886Ford', 3, 46227);
-INSERT INTO shop (shopName, password, numMechanic, zipCode) VALUES("Leeroy's Lifts",'1886Ford', 1, 46227);
-INSERT INTO shop (shopName, password, numMechanic, zipCode) VALUES("Jeromy's Junkyard",'1886Ford', 2, 46227);
+INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Bob's Auto",'1886Ford', 1, 46227, '317-788-3368');
+INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Leeroy's Lifts",'1886Ford', 1, 46227, '317-788-3368');
+INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Jeromy's Junkyard",'1886Ford', 1, 46227, '317-788-3368');
+INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Randy's Recks",'1886Ford', 1, 46227, '317-788-3368');
 
 
 CREATE TABLE customer
@@ -25,7 +27,7 @@ CREATE TABLE customer
 	LName varchar(20),
 	password char(10),
 	address varchar(40),
-	phoneNum char(13),
+	phoneNum varchar(13),
 	PRIMARY KEY (custNo)
 );
 
@@ -48,6 +50,8 @@ INSERT INTO service (shopNo, service, minutes, price) VALUES( 1, 'tire rotation'
 INSERT INTO service (shopNo, service, minutes, price) VALUES( 2, 'oil change', 30 , 85.00);
 INSERT INTO service (shopNo, service, minutes, price) VALUES( 3, 'oil change', 45 , 100.00);
 INSERT INTO service (shopNo, service, minutes, price) VALUES( 3, 'tire rotation', 45 , 95.00);
+INSERT INTO service (shopNo, service, minutes, price) VALUES( 4, 'service job', 60 , 105.00);
+INSERT INTO service (shopNo, service, minutes, price) VALUES( 4, 'tire rotation', 45 , 85.00);
 
 CREATE TABLE reservation
 (resNo int NOT NULL AUTO_INCREMENT,

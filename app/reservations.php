@@ -9,13 +9,7 @@
 <body>
 	<?php include 'static/menu.html'; ?>
 	
-	<?php 
-		$dsn = 'mysql:host=localhost;dbname=carBuddy';
-		$username = 'root';
-		$password = '';
-		$pdo = new PDO($dsn, $username, $password);
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    ?>
+	<?php include 'static/connection.php'; ?>
 	
 	<h2>Shop Reservations</h2>
 	<!-- <form method='GET'>
@@ -40,12 +34,12 @@
           'FROM reservation r '.
           'INNER JOIN shop sh on sh.shopNo = r.shopNo '.
 		  'INNER JOIN service s on s.servNo = r.servNo '.
-		  'WHERE r.startD <= ? '.
+		  'WHERE r.startD >= ? '.
 		  'ORDER BY r.startD, r.startT ASC '.
 		  'LIMIT 10;';
 		$statement = $pdo->prepare($sql);
 		date_default_timezone_set('America/New_York');
-		$statement->bindValue(1, date('Y-d-m'), PDO::PARAM_STR);
+		$statement->bindValue(1, date('Y-m-d'), PDO::PARAM_STR);
 		//$statement->bindValue(2, $limit, PDO::PARAM_STR);
     
 		try{
@@ -67,24 +61,28 @@
       <tr>
         <th>service</th>
         <th>shop name</th>
-        <th>price</th>
-        <th>minutes</th>
         <th>zip code</th>
+		<th>phone number</th>
+        <th>minutes</th>
+        <th>price</th>
       </tr>
     <?php
-      $sql = 'SELECT s.service, s.price, s.minutes, sh.shopName, sh.zipCode '.
+      $sql = 'SELECT s.service, s.price, s.minutes, sh.phoneNum, sh.shopName, sh.zipCode '.
         'FROM service s '.
 		'INNER JOIN shop sh on s.shopNo = sh.shopNo '.
 		' ORDER BY s.service, sh.shopName ASC;';
       $statement = $pdo->query($sql);
-      while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+	  $i=0;
+      while(($row = $statement->fetch(PDO::FETCH_ASSOC)) && $i < 10){
         echo "<tr>";
-        echo "<td>" . $row['service'] . "</td>";
+		echo "<td>" . $row['service'] . "</td>";
         echo "<td>" . $row['shopName'] . "</td>";
-        echo "<td>" . $row['price'] . "</td>";
-        echo "<td>" . $row['minutes'] . "</td>";
         echo "<td>" . $row['zipCode'] . "</td>";
+        echo "<td>" . $row['phoneNum'] . "</td>";
+        echo "<td>" . $row['minutes'] . "</td>";
+		echo "<td>" . $row['price'] . "</td>";
         echo "</tr>";
+		$i++;
       }
     ?>
 	</table>
