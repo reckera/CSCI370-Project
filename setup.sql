@@ -9,17 +9,15 @@ CREATE TABLE shop
 (shopNo int NOT NULL AUTO_INCREMENT,
 	shopName varchar(35),
 	password char(8),
-	numMechanic int,
 	zipCode int,
 	phoneNum varchar(13),
 	PRIMARY KEY (shopNo)
 );
 
-INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Bob's Auto",'1886Ford', 1, 46227, '317-788-3368');
-INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Leeroy's Lifts",'1886Ford', 1, 46227, '317-788-3368');
-INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Jeromy's Junkyard",'1886Ford', 1, 46227, '317-788-3368');
-INSERT INTO shop (shopName, password, numMechanic, zipCode, phoneNum) VALUES("Randy's Recks",'1886Ford', 1, 46227, '317-788-3368');
-
+INSERT INTO shop (shopName, password, zipCode, phoneNum) VALUES("Bob's Auto",'1886Ford', 46227, '317-788-3368');
+INSERT INTO shop (shopName, password, zipCode, phoneNum) VALUES("Leeroy's Lifts",'1886Ford', 46227, '317-788-3368');
+INSERT INTO shop (shopName, password, zipCode, phoneNum) VALUES("Jeromy's Junkyard",'1886Ford', 46227, '317-788-3368');
+INSERT INTO shop (shopName, password, zipCode, phoneNum) VALUES("Randy's Wrecks",'1886Ford', 46227, '317-788-3368');
 
 CREATE TABLE customer
 (custNo int NOT NULL AUTO_INCREMENT,
@@ -77,3 +75,7 @@ CREATE TABLE reservation
 
 INSERT INTO reservation (custNo, shopNo, servNo, cost, startD, startT, endD, endT) VALUES( 1, 1, 2, 85.00, "2022-05-29", "15:00:00", "2022-05-29", "16:00:00");
 INSERT INTO reservation (custNo, shopNo, servNo, cost, startD, startT, endD, endT) VALUES( 1, 2, 3, 85.00, "2022-05-29", "16:00:00", "2022-05-29", "16:30:00");
+INSERT INTO reservation (custNo, shopNo, servNo, cost, startD, startT, endD, endT) VALUES( 1, 1, 2, 85.00, "2022-05-29", "16:00:00", "2022-05-29", "17:00:00");
+INSERT INTO reservation (custNo, shopNo, servNo, cost, startD, startT, endD, endT) VALUES( 1, 2, 3, 85.00, "2022-05-29", "16:30:00", "2022-05-29", "17:00:00");
+INSERT INTO reservation (custNo, shopNo, servNo, cost, startD, startT, endD, endT) VALUES( 1, 1, 2, 85.00, "2022-05-29", "17:00:00", "2022-05-29", "18:00:00");
+INSERT INTO reservation (custNo, shopNo, servNo, cost, startD, startT, endD, endT) VALUES( 1, 2, 3, 85.00, "2022-05-29", "17:00:00", "2022-05-29", "17:30:00");

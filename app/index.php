@@ -6,7 +6,17 @@
 	<link href="/static/styles.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<?php include 'static/menu.html'; ?>
+	<?php include 'static/menu.php'; ?>
+	
+	<?php 
+		$mem  = new Memcached();
+		// List memcache servers
+		$mem->addServer('host.docker.internal',11211);
+
+		if($mem->getVersion() === FALSE){
+			echo "<h2>Memcache server connection error</h2>";
+		}
+	?>
 
 	<h2>Mechanic looking for work?</h2>
 	<p>Are you a mechanic with fine motor skills who's not well known, doesn't have a lot of space, or just wants to branch out and reach more customers? 

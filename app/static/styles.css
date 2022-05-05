@@ -31,26 +31,3 @@ address{
 p{
 	padding-left: 1em;
 }
-
-#content{
-    /* the width in here will be changed 
-    width: this requirment will be changed
-    i dont' want to type my left, right content static
-    is there a way? */
-}
-#left{
-    float:left;
-    width: 50%;
-}
-#right{
-    float:left;
-    width: 50%;
-}
-#bottom{
-    border: 1px solid black;
-    clear: both;
-}
-
-.container {
-    border: 1px solid black;    
-}
